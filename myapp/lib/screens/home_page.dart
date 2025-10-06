@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 100, // задаём нужный размер
+                  width: 100, 
                   child: Image(
                     image: AssetImage("assets/folder_image.png"),
                     fit: BoxFit.contain,
@@ -140,8 +140,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Positioned(
-            right: 25, // Отступ от правого края
-            bottom: 25, // Отступ от нижнего края
+            right: 25,
+            bottom: 25,
             child: OutlinedButton.icon(
               label: Text(
                 'Выбрать',
