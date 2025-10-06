@@ -18,12 +18,10 @@ class _MediaViewScreenState extends State<MediaViewScreen> {
   @override
   void initState() {
     super.initState();
-    // Определяем тип файла
     final path = widget.filePath.toLowerCase();
     _isVideo =
         path.endsWith('.mp4') || path.endsWith('.mov') || path.endsWith('.avi');
 
-    // Инициализируем видео только если это видеофайл
     if (_isVideo) {
       _initializeVideo();
     }
@@ -43,7 +41,6 @@ class _MediaViewScreenState extends State<MediaViewScreen> {
 
       await _videoController!.initialize();
 
-      // Добавляем обработку ошибок декодирования
       if (!_videoController!.value.isInitialized) {
         throw Exception("Не удалось инициализировать видео");
       }
@@ -96,10 +93,9 @@ class _MediaViewScreenState extends State<MediaViewScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Ограничиваем размер видео
         SizedBox(
-          width: 300, // Фиксированная ширина
-          height: 350, // Фиксированная высота
+          width: 300,
+          height: 350, 
           child: AspectRatio(
             aspectRatio: _videoController!.value.aspectRatio,
             child: VideoPlayer(_videoController!),
